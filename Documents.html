@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+    <title>Document</title>
+    <style>
+        .container {
+            border: 10px solid lightseagreen;
+            border-right: 40px solid lightseagreen;
+            border-top: 20px solid lightseagreen;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px blueviolet;
+        }
+
+        @media screen and (max-width: 500px) {
+            .container {
+                display: block;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="row col-md-12 col-md-offset">
+            <div class="color">
+                <header>Upload Photograph And Signature And Documents</header>
+                <form>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sr no</th>
+                                <th>Document Type</th>
+                                <th>Status</th>
+                                <th>Attestation Required</th>
+                                <th>Upload</th>
+                                <th>View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Photograph 125px X 130px</td>
+                                <td><input type="file" id="photo1" name="file" onchange="validateFileUpload(this)"></td>
+                                <td><button class="btn btn-primary" type="button">Not Required</button></td>
+                                <td><button type="button" class="btn btn-success">Upload</button></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Signature 50px X 70px</td>
+                                <td><input type="file" id="photo2" name="file" onchange="validateFileUpload(this)"></td>
+                                <td><button class="btn btn-primary" type="button">Not Required</button></td>
+                                <td><button type="button" class="btn btn-success">Upload</button></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Identity Proof 125px x 130px</td>
+                                <td><input type="file" id="photo3" name="file" onchange="validateFileUpload(this)"></td>
+                                <td><button type="button" class="btn btn-danger">Required</button></td>
+                                <td><button type="button" class="btn btn-success">Upload</button></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Address Proof 125px x 130px</td>
+                                <td><input type="file" id="photo4" name="file" onchange="validateFileUpload(this)"></td>
+                                <td><button class="btn btn-primary" type="button">Not Required</button></td>
+                                <td><button type="button" class="btn btn-success">Upload</button></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Qualification Document(Marksheet/Degree)[Self Attested]25px x 130px</td>
+                                <td><input type="file" id="photo5" name="file" onchange="validateFileUpload(this)"></td>
+                                <td><button type="button" class="btn btn-danger">Required</button></td>
+                                <td><button type="button" class="btn btn-success">Upload</button></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div style="overflow:auto;">
+            <div style="float:right;">
+                <button type="button" id="prev"><a href="Academic.html">Previous</a></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function validateFileUpload(input) {
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+            var fileSizeLimitMB = 5;
+
+            if (!allowedExtensions.exec(input.value)) {
+                alert('Invalid file type. Please upload a valid image file (JPEG, JPG, PNG).');
+                input.value = '';
+                return false;
+            }
+
+            if (input.files[0].size > fileSizeLimitMB * 1024 * 1024) {
+                alert('File size exceeds the limit of ' + fileSizeLimitMB + ' MB.');
+                input.value = '';
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

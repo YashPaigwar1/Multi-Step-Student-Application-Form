@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+
+    <title>Document</title>
+    <style>
+        .container {
+            border: 10px solid lightseagreen;
+            border-right: 30px solid lightseagreen;
+            border-top: 20px solid lightseagreen;
+            padding: 10px;
+            box-shadow: 0px 0px 10px 0px #000000;
+            border-left: 20px solid lightseagreen;
+        }
+
+        .topnav {
+            overflow: auto;
+            background-color: lightslategray;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .topnav a:hover {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        label span {
+            color: red;
+            padding: 2px 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Application Form</header>
+
+
+    <div class="topnav">
+
+
+        <a class="active" href="Profile.html5">Profile</a>
+        <a href="Academic.html">Academic</a>
+        <a href="Documents.html">Documents</a>
+
+    </div>
+
+    <div class="container ">
+
+        <form action="Academic.html">
+
+            <div class="row col-md-11  col-md-offset">
+
+
+                <div class="col bg-light border border-dark  pt-5  mt-5 mx-4  ">
+
+                    <span class="p-2 ">Contact Details:</span>
+
+
+                    <hr class="m-2 ">
+                    <div class="form-group row">
+
+                        <label for="name" class="col-sm-2 col-form-label"><b>Full Name </b><span>*</span> </label>
+                        <div class="col-sm-10">
+
+                            <input type="text" class="form-control" id="name" oninput="validatename()"
+                                placeholder="Enter your full name" required>
+                            <span id="message-name"></span>
+
+
+                        </div>
+
+                    </div>
+                    <br>
+
+                    <div class="form-group row">
+                        <label for="fatherName" class="col-sm-2 col-form-label"><b>FatherName</b></label><span>*</span>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="fatherName" oninput="validatefatherName"
+                                placeholder="Father's name">    
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for=" mother name" class="col-sm-2 col-form-label"><b>MotherName</b></label>
+                        <div class="col-sm-10">
+                            <input type=" mother name" class="form-control" id=" mother name" placeholder="Mother name">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group row  ">
+                        <label for="Email" class="col-sm-3 col-form-label "><b>Gender</b></label>
+                        <div class="col-sm-9 m-0 ">
+                            <input class="mx-1" type="radio" id="Male" name="Gender">
+                            <label class="mx-1" for="">Male</label>
+                            <input class="mx-1" type="radio" id="Female" name="Gender">
+                            <label class="mx-1" for="">Female</label>
+
+
+
+
+                        </div>
+                        <br>
+                        <div class="form-group row ">
+
+                            <label for="dob" class="col-sm-3  col-form-label "><b>DOB:</b></label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="dob">
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-2 col-form-label"><b>Email</b><span>*</span></label>
+                            <div class="col-sm-10">
+
+                                <input type="email" required class="form-control" id="email" oninput="validateemail()"
+                                    placeholder="Enter Email"><span id="email_err"></span>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+
+                                <span id="message"></span>
+
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="form-group row ">
+                            <label for="mobile" class="col-sm-2 col-form-label"> <b>Mobile</b><span>*</span></label>
+                            <div class="col-sm-10">
+
+                                <input type="tel" required class="form-control" maxlength="10" oninput="validatenumber()"
+                                    placeholder="Enter mobile" id="mobile">
+                                <span id="message-mobile"></span>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="span12" style="border: 5px solid lightskyblue">
+                        <div class="row">
+                            <div class="span4">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col  bg-light border border-black   mt-4 mx-4 ">
+                            <span class="p-2">Permanent Address</span>
+                            <hr class="mt-4">
+                            <div class="form-group row ">
+                                <label for="p_houseno" class="col-sm-4 col-form-label"><b>House/flat no</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter house no" id="p_houseno">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
+                                <label for="p_street" class="col-sm-4 col-form-label"><b>street</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter street" id="p_street">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row ">
+                                <label for="p_city" class="col-sm-4  col-form-label"><b>city / village</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="city / village" id="p_city">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row ">
+                                <label for="p_district" class="col-sm-4 col-form-label"><b>District</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter name" id="p_district">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row ">
+                                <label for="p_state" class="col-sm-4 col-form-label"><b>State</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter state" id="p_state">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row ">
+                                <label for="p_pincode" class="col-sm-4 col-form-label"><b>Pincode</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter pincode" id="p_pincode">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row  ">
+                                <label for="p_country" class="col-sm-4 col-form-label"><b>Country</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter country" id="p_country">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col bg-light border border-dark   pt-2  mt-4 mx-7 ">
+                            <span class="p-2">Mailing Address:</span>
+                            <div class="form-group row m-0 p-0  ">
+                                <div class="col m-0 p-0">
+                                    <input type="checkbox" oninput="filldata()" placeholder="Enter name" id="fill">
+                                    <label class="m-0 p-0" for="">Same as permanent address</label>
+                                </div>
+                            </div>
+                            <hr class="m-2 p-1 ">
+                            <div class="form-group row ">
+                                <label for="m_houseno" class="col-sm-4 col-form-label"><b>House/flat no</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter house no" id="m_houseno">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
+                                <label for="m_street" class="col-sm-4 col-form-label"><b>street</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter street" id="m_street">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row ">
+                                <label for="m_city" class="col-sm-4  col-form-label"><b>city / village</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="city / village" id="m_city">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row ">
+                                <label for="m_district" class="col-sm-4 col-form-label"><b>District</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter district"
+                                        id="m_district">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row ">
+                                <label for="m_state" class="col-sm-4 col-form-label"><b>State</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter state" id="m_state">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row ">
+                                <label for="m_pincode" class="col-sm-4 col-form-label"><b>Pincode</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter pincode" id="m_pincode">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row ">
+                                <label for="m_country" class="col-sm-4 col-form-label"><b>Country</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="Enter country" id="m_country">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <div style="overflow:auto;">
+        <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)"><a href="Academic.html">Next</a></button>
+        </div>
+    </div>
+
+    <script>
+
+
+        function validateemail() {
+
+            var email = document.getElementById("email").value;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            var errorMessage = document.getElementById("message");
+            errorMessage.innerHTML = "";
+
+            if (!emailRegex.test(email)) {
+                errorMessage.innerHTML = "Invalid email address. Please enter a valid email.";
+                errorMessage.style.color = "red";
+            } else {
+                errorMessage.innerHTML = "Email is valid!";
+                errorMessage.style.color = "green";
+            }
+        }
+
+        function validatefatherName(){
+            const input=document.getElementById("fatherName")
+            const regex=/^[a-zA-Z ]{1,10}$/;
+            if(!regex.test(input.value)){
+                input.setCustomeValidity("Invalid father's name. please enter a valid name.");
+                window.location.href="Academic.html";
+            }
+            else{
+                input.setCustomeValidity("");
+            }
+
+        }
+
+        function validatenumber(phone) {
+            let mobile = document.getElementById("mobile").value;
+            const inputElement = document.getElementById('mobile');
+            const alphabetRegex = /^[0-9]*$/;
+            var errorMessage = document.getElementById("message-mobile");
+            errorMessage.innerHTML = "";
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^0-9]/g, '');
+            }
+            if (mobile.length < 10) {
+                errorMessage.innerHTML = "enter 10 digit number";
+                errorMessage.style.color = "red";
+                return false;
+
+
+            } else {
+                errorMessage.innerHTML = "";
+                return true;
+            }
+        }
+        
+
+        function filldata() {
+            if (fill.checked == true) {
+                let houseno = document.getElementById("p_houseno").value;
+                let street = document.getElementById("p_street").value;
+                let city = document.getElementById("p_city").value;
+                let district = document.getElementById("p_district").value;
+                let state = document.getElementById("p_state").value;
+                let pincode = document.getElementById("p_pincode").value;
+                let country = document.getElementById("p_country").value;
+
+
+                document.getElementById("m_houseno").value = houseno;
+                document.getElementById("m_street").value = street;
+                document.getElementById("m_city").value = city;
+                document.getElementById("m_district").value = district;
+                document.getElementById("m_state").value = state;
+                document.getElementById("m_pincode").value = pincode;
+                document.getElementById("m_country").value = country;
+            } else {
+                document.getElementById("m_houseno").value = " ";
+                document.getElementById("m_street").value = " ";
+                document.getElementById("m_city").value = " ";
+                document.getElementById("m_district").value = " ";
+                document.getElementById("m_state").value = " ";
+                document.getElementById("m_pincode").value = " ";
+                document.getElementById("m_country").value = " ";
+            }
+        }
+    </script>
+</body>
+
+</html>

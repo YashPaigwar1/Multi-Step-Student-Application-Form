@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+    <title>Document</title>
+    <style>
+        .container {
+            border: 10px solid lightseagreen;
+            border-right: 35px solid lightseagreen;
+            border-top: 25px solid lightseagreen;
+            border-bottom: 35px solid lightseagreen;
+            padding: 10px;
+            box-shadow: 0px 0px 10px 0px #000000;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container  ">
+
+
+        <div class="row col-md-12 col-md-offset">
+            <div class="color">
+                <header>Academic</header>
+                <div class="col-sm-12 ">
+                    <label for="exampleSelect1"><b>Select Document</b></label>
+                    <select onchange="selectdoc()" class="form-control " name="" id="selectOption">
+
+                        <option value="1">Adhar Card </option>
+                        <option value="2"> Domecial </option>
+                        <option value="3"> Cast Certificate </option>
+                        <option value="4"> Cast Validity </option>
+                    </select>
+                </div>
+                <input class="form-control" type="text" placeholder="">
+                <p>*Note: Aadhar Card Number is prefered option for linking your certifications in Govt Record</p>
+                <label>
+                    <b>Have you ever been debarred by any University/Board:</b>
+                </label>
+
+                <input type="radio" name="yes" /> Yes
+                <input type="radio" name="No" /> No
+                <br>
+
+
+                <label class="form-check-label">
+
+                    <label>
+                        <b>Category :</b>
+                    </label>
+                    <input type="radio" class="form-check-input" name="optradio">General
+
+
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optradio"> SC
+
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio"> OBC
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optradio"> Employed
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optradio"> Unemployed
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio">Others
+
+
+
+                                    </label>
+                                </label>
+                            </label>
+                        </label>
+                    </label>
+                </label>
+
+                <p><b class="text-dark ">Details of Previous Examination passed From Other University</b></p>
+
+
+                <form>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>Board/Univ</th>
+                                <th>Program</th>
+                                <th>Year of Passing</th>
+                                <th>Percentage</th>
+                                <th>Division</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!-- id dena ha aru on change likns ha -->
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                                <td><input type="text" id="11_level" oninput="validate11_level()" class="form-control"
+                                        placeholder=""></td>
+                                <td><input type="text" id="12_level" oninput="validate12_level()" class="form-control"
+                                        placeholder=""></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                                <td><input type="text" id="17_level" oninput="validate17_level()" class="form-control"
+                                        placeholder=""></td>
+                                <td><input type="text" id="18_level" oninput="validate18_level()" class="form-control"
+                                        placeholder=""></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                            </tr>
+                            <td><input type="text" class="form-control" placeholder=""></td>
+                            <td><input type="text" id="23_level" oninput="validate23_level()" class="form-control"
+                                    placeholder=""></td>
+                            <td><input type="text" id="24_level" oninput="validate24_level()" class="form-control"
+                                    placeholder=""></td>
+                            <td><input type="text" class="form-control" placeholder=""></td>
+                            <td><input type="text" class="form-control" placeholder=""></td>
+                            <td><input type="text" class="form-control" placeholder=""></td>
+                            <tr>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                                <td><input type="text" id="29_level" oninput="validate29_level()" class="form-control"
+                                        placeholder=""></td>
+                                <td><input type="text" id="30_level" oninput="validate30_level()" class="form-control"
+                                        placeholder=""></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                                <td><input type="text" class="form-control" placeholder=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div style="overflow:auto;">
+        <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)"><a href="Profile.html">Previous</a></button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)"><a href="Documents.html">Next</a></button>
+        </div>
+    </div>
+
+    <script>
+        function validate10_level() {
+
+            // id ya enter karna ha
+            const inputElement = document.getElementById('10_level');
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+        function validate11_level() {
+
+            // id ya enter karna ha
+            const inputElement = document.getElementById('11_level');
+
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+        function validate17_level() {
+
+            // id ya enter karna ha
+            const inputElement = document.getElementById('17_level');
+
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+        function validate23_level() {
+
+            // id ya enter karna ha
+            const inputElement = document.getElementById('23_level');
+
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+        function validate29_level() {
+
+            // id ya enter karna ha
+            const inputElement = document.getElementById('29_level');
+
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+
+        function validate12_level() {
+
+            // id ya enter karna ha
+            const inputElement = document.getElementById('12_level');
+
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+        function validate18_level() {
+
+            // id ya enter karna ha
+            const inputElement = document.getElementById('18_level');
+
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+        function validate24_level() {
+
+            // id ya enter karna ha
+            const inputElement = document.getElementById('24_level');
+
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+        function validate30_level() {
+
+            // id ya enter karna ha
+            const inputElement = document.getElementById('30_level');
+
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+
+
+
+
+
+
+
+        function validate16_level() {
+
+            const inputElement = document.getElementById('16_level');
+            const alphabetRegex = /^[a-zA-Z]*$/;
+            if (!alphabetRegex.test(inputElement.value)) {
+
+
+                inputElement.value = inputElement.value.replace(/[^a-zA-Z]/g, '');
+            }
+        }
+
+       
+
+
+    </script>
+
+</body>
+
+</html>
